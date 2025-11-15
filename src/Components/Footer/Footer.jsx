@@ -90,7 +90,7 @@ const Footer = () => {
       {/* Bottom Bar for Copyright and Legal Links */}
       <div className="footer-bottom-bar">
         <div className="footer-copyright">
-          &copy; {currentYear} VirtualantSecurity | All rights reserved
+          &copy; {currentYear} VirtualantSecurity | Jitendra Parmar — All Rights Reserved.
         </div>
         <div className="footer-legal-links">
           <a href="/privacy-policy">Privacy Policy</a>
