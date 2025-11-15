@@ -7,6 +7,7 @@ import About from './Pages/About/About';
 import Blog from './Pages/Blog/Blog';
 import Contact from './Pages/Contact/Contact';
 import CyberSecurity from './Pages/Services/CyberSecurity/CyberSecurity';
+import Blogs from './Pages/Blogs/Blogs';
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact" element={<Contact />} />
 
           <Route path="/services/cyber-security" element={<CyberSecurity />} />

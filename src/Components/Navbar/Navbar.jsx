@@ -58,8 +58,8 @@ const Navbar = () => {
           <Link to="/about" className={location.pathname === '/about' ? 'navbar-link-active' : ''} onClick={handleLinkClick}>
             About
           </Link>
-          <Link to="/blog" className={location.pathname === '/blog' ? 'navbar-link-active' : ''} onClick={handleLinkClick}>
-            Blog
+          <Link to="/blogs" className={location.pathname === '/blogs' ? 'navbar-link-active' : ''} onClick={handleLinkClick}>
+            Blogs
           </Link>
 
           <div 
