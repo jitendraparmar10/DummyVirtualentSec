@@ -9,7 +9,7 @@
   --home-speed: 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --home-closed: 5rem;
   --home-open: 30rem;
-  --home-accent: #007bff;
+  --home-accent: #ff2f4f;
   
   /* Variables for About Section Text Animation */
   --text-initial-color: #a0a0a0;
@@ -954,7 +954,7 @@ body {
 }
 
 .home-select-button:hover {
-    background-color: #0056b3; /* Darker shade of accent */
+    background-color: #ff2f4f; /* Darker shade of accent */
     transform: scale(1.05);
 }
 
