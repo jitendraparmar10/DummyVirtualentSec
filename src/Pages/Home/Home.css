@@ -515,7 +515,7 @@ body {
 .home-project-card__btn {
   padding: 0.55rem 1.3rem;
   border: none;
-  border-radius: 9999px;
+  border-radius: 20px 0;
   background: var(--home-accent);
   color: #fff;
   font-size: 0.9rem;
@@ -525,7 +525,8 @@ body {
 }
 
 .home-project-card__btn:hover {
-  background: #0056b3;
+  background: var(--animation-red);
+  border-radius: 0 20px;
 }
 
 

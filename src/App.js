@@ -8,6 +8,8 @@ import Blog from './Pages/Blog/Blog';
 import Contact from './Pages/Contact/Contact';
 import CyberSecurity from './Pages/Services/CyberSecurity/CyberSecurity';
 import Blogs from './Pages/Blogs/Blogs';
+import TermsAndCondition from './Pages/TermsAndCondition/TermsAndCondition';
+import Privacy from './Pages/Privacy/Privacy';
 
 const App = () => {
   return (
@@ -21,6 +23,10 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
 
           <Route path="/services/cyber-security" element={<CyberSecurity />} />
+
+          <Route path="/terms-and-conditions" element={<TermsAndCondition />} />
+          <Route path="/privacy-policy" element={<Privacy />} />
+
         </Routes>
         <Footer />
       </>

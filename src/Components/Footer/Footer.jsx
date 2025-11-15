@@ -58,7 +58,7 @@ const Footer = () => {
         {/* Center Content */}
         <div className="footer-center-content">
           <img src={logo} alt="VirtualantSecurity Logo" className="footer-main-logo" />
-          <h1 className="footer-company-name-main">VirtualantSecurity</h1>
+          <h1 className="footer-company-name-main">VirtualentSecurity</h1>
         </div>
 
         {/* Right Side: Our Offices */}
@@ -90,7 +90,7 @@ const Footer = () => {
       {/* Bottom Bar for Copyright and Legal Links */}
       <div className="footer-bottom-bar">
         <div className="footer-copyright">
-          &copy; {currentYear} VirtualantSecurity | Jitendra Parmar — All Rights Reserved.
+          &copy; {currentYear} VirtualentSecurity | Jitendra Parmar — All Rights Reserved.
         </div>
         <div className="footer-legal-links">
           <a href="/privacy-policy">Privacy Policy</a>
