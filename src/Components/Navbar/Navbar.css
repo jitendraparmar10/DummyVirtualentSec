@@ -1,0 +1,99 @@
+/* Main Navbar Container - Initial Centered State */
+.navbar-container {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  border-radius: 50px;
+  background-color: transparent;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: width 0.7s cubic-bezier(0.87, 0, 0.13, 1),
+              left 0.7s cubic-bezier(0.87, 0, 0.13, 1),
+              transform 0.7s cubic-bezier(0.87, 0, 0.13, 1),
+              background-color 0.7s ease,
+              box-shadow 0.7s ease,
+              border-radius 0.7s ease;
+}
+
+.navbar-container.navbar-menu-is-open {
+  overflow: visible;
+}
+
+/* Scrolled State - Expanded Navbar */
+.navbar-container.navbar-scrolled {
+  left: 5rem;
+  transform: translateX(0);
+  width: calc(100% - 10rem);
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: visible; 
+}
+
+/* --- Other existing styles --- */
+.navbar-content { display: flex; align-items: center; justify-content: space-between; width: 100%; box-sizing: border-box; padding: 0; transition: padding 0.9s cubic-bezier(0.87, 0, 0.13, 1); }
+.navbar-scrolled .navbar-content { padding: 0.8rem 2rem; }
+.navbar-logo-container { display: flex; align-items: center; gap: 1rem; }
+.navbar-logo { height: 45px; transition: transform 0.9s cubic-bezier(0.87, 0, 0.13, 1); }
+.navbar-scrolled .navbar-logo { transform: rotate(360deg); }
+.navbar-company-name { color: black; font-size: 1.25rem; font-weight: 600; opacity: 0; max-width: 0; overflow: hidden; white-space: nowrap; transition: opacity 0.5s ease-in-out 0.4s, max-width 0.5s ease-in-out 0.4s; }
+.navbar-scrolled .navbar-company-name { opacity: 1; max-width: 200px; }
+.navbar-links { display: flex; gap: 1rem; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out 0.4s, visibility 0.5s ease-in-out 0.4s; align-items: center; }
+.navbar-links a { color: black; text-decoration: none; font-weight: 500; padding: 8px 16px; border-radius: 20px; transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease; }
+.navbar-links a:hover:not(.navbar-link-active) { background-color: #f0f0f0; transform: translateY(-2px); }
+.navbar-links a.navbar-link-active { background-color: #ffeded; color: #e53e3e; }
+.navbar-hamburger { display: none; cursor: pointer; z-index: 1001; opacity: 0; transition: opacity 0.5s ease-in-out 0.4s; }
+.navbar-scrolled .navbar-hamburger { opacity: 1; }
+.navbar-hamburger-line { width: 25px; height: 3px; background-color: black; margin: 5px 0; border-radius: 3px; transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
+
+/* THIS IS THE KEY FIX for the mobile sidebar visibility bug */
+/* This rule only applies to desktop screens, preventing it from showing the links on mobile scroll */
+@media (min-width: 993px) {
+  .navbar-scrolled .navbar-links {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .navbar-container.navbar-scrolled { width: calc(100% - 4rem); left: 2rem; }
+  .navbar-hamburger { display: block; }
+  .navbar-container.navbar-scrolled.navbar-menu-is-open { width: calc(100% - 2rem); border-radius: 50px 0 0 50px; }
+  .navbar-links { display: flex; flex-direction: column; position: absolute; top: 100%; right: 0; width: 250px; background-color: white; padding: 1rem; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 0 0 20px 20px; transform: translateX(100%); opacity: 0; visibility: hidden; transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease, visibility 0.5s ease; align-items: flex-start; }
+  .navbar-links.navbar-links-open { transform: translateX(0); opacity: 1; visibility: visible; transition-delay: 0.7s; }
+}
+
+@media (max-width: 768px) {
+  .navbar-container.navbar-scrolled { width: calc(100% - 2rem); left: 1rem; }
+  .navbar-container.navbar-scrolled.navbar-menu-is-open { width: calc(100% - 1rem); border-radius: 50px 0 0 50px; }
+}
+
+/* Hamburger to 'X' animation */
+.navbar-hamburger-line-open:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+.navbar-hamburger-line-open:nth-child(2) { opacity: 0; }
+.navbar-hamburger-line-open:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+
+/* --- DROPDOWN STYLES --- */
+.navbar-dropdown-container { position: relative; }
+.dropdown-arrow { font-size: 0.6em; margin-left: 8px; display: inline-block; transition: transform 0.3s ease; }
+.navbar-dropdown-container.dropdown-open .dropdown-arrow { transform: rotate(180deg); }
+.services-dropdown { display: none; position: absolute; top: 110%; left: 50%; transform: translateX(-50%); background-color: white; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); padding: 0.5rem; width: max-content; opacity: 0; visibility: hidden; transition: top 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; z-index: 10; }
+.navbar-dropdown-container:hover .services-dropdown,
+.navbar-dropdown-container.dropdown-open .services-dropdown { display: block; opacity: 1; visibility: visible; top: 130%; }
+.services-dropdown a { display: block; width: 100%; padding: 0.75rem 1.5rem; white-space: nowrap; border-radius: 8px; }
+
+/* --- MOBILE DROPDOWN STYLES --- */
+@media (max-width: 992px) {
+  .navbar-dropdown-container { width: 100%; }
+  .navbar-dropdown-container > a { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+  .services-dropdown { position: static; transform: none; box-shadow: none; border-radius: 0; width: 100%; padding: 0; padding-left: 1.5rem; max-height: 0; overflow: hidden; opacity: 1; visibility: visible; display: block; transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; z-index: auto; }
+  .navbar-dropdown-container.dropdown-open .services-dropdown { max-height: 500px; padding-top: 0.5rem; padding-bottom: 0.5rem; }
+  .services-dropdown a { padding: 0.75rem 0; }
+}

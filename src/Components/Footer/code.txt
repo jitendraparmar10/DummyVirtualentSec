@@ -1,0 +1,356 @@
+import React from 'react';
+import './Footer.css';
+import logo from '../../Assets/logo.webp'; // Your logo import
+import { FaFacebookF, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6'; // Latest Twitter (X) icon
+import { MdLocationOn, MdEmail, MdCall } from 'react-icons/md';
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  const companyName = "VirtualantSecurity";
+
+  return (
+    <footer className="footer-container">
+      <div className="footer-main">
+        <div className="footer-column">
+          <div className="footer-logo-container">
+            <img src={logo} alt="Company Logo" className="footer-logo" />
+            <h3 className="footer-company-name">VirtualantSecurity</h3>
+          </div>
+          <p className="footer-company-description">
+            Your Trusted Partner for Comprehensive Cyber Security Services & Solutions. We transform your entire security posture to empower your business and mitigate risks.
+          </p>
+          <div className="footer-social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaXTwitter /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><FaYoutube /></a>
+          </div>
+        </div>
+
+        <div className="footer-column">
+          <h4 className="footer-heading">Popular Links</h4>
+          <ul className="footer-links">
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/knowledge-center">Knowledge Center</a></li>
+            <li><a href="/meet-our-team">Meet Our Team</a></li>
+            <li><a href="/subscription">Subscription</a></li>
+          </ul>
+        </div>
+
+        <div className="footer-column">
+          <h4 className="footer-heading">Get In Touch</h4>
+          <div className="footer-contact-item">
+            <MdLocationOn className="footer-contact-icon" />
+            <span>Soukya Rd Whitefield, Bengaluru, Karnataka 562114, India</span>
+          </div>
+          <div className="footer-contact-item">
+            <MdEmail className="footer-contact-icon" />
+            <a href="mailto:contact@virtualentsecurity.com">contact@virtualentsecurity.com</a>
+          </div>
+          <div className="footer-contact-item">
+            <MdCall className="footer-contact-icon" />
+            <a href="tel:+916377065766">+91 63770 65766</a>
+          </div>
+        </div>
+
+        <div className="footer-column">
+          <h4 className="footer-heading">Our Offices</h4>
+          <div className="footer-office-grid">
+            <div className="footer-office-region">
+              <h5>Asia Region</h5>
+              <p>India &nbsp;&nbsp; Vietnam &nbsp;&nbsp; Armenia</p>
+            </div>
+            <div className="footer-office-region">
+              <h5>Middle East</h5>
+              <p>UAE &nbsp;&nbsp; Qatar</p>
+            </div>
+            <div className="footer-office-region">
+              <h5>Africa Region</h5>
+              <p>Nigeria &nbsp;&nbsp; Rwanda</p>
+            </div>
+            <div className="footer-office-region">
+              <h5>Europe Region</h5>
+              <p>Serbia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <p>&copy; {currentYear} {companyName}. All rights reserved.</p>
+        <div className="footer-bottom-links">
+          <a href="/privacy-policy">Privacy</a>
+          <a href="/terms-and-conditions">Terms and Condition</a>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* General Footer Styling */
+.footer-container {
+  background-color: #ffffff;
+  color: #333;
+  padding: 4rem 5rem 1rem;
+  font-family: 'Arial', sans-serif;
+  border-top: 1px solid #e7e7e7;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 260px;
+}
+
+.footer-heading {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #000;
+}
+
+/* First Column: Logo and Company Info */
+.footer-logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.footer-logo {
+  height: 45px;
+  margin-right: 0.75rem;
+}
+
+.footer-company-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.footer-company-description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* Social Links Styling */
+.footer-social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social-links a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 1.2rem;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.footer-social-links a:hover {
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Original colors on hover */
+.footer-social-links a[aria-label="Facebook"]:hover {
+  background-color: #1877F2;
+}
+
+.footer-social-links a[aria-label="Twitter"]:hover {
+  background-color: #000000;
+}
+
+.footer-social-links a[aria-label="LinkedIn"]:hover {
+  background-color: #0A66C2;
+}
+
+.footer-social-links a[aria-label="YouTube"]:hover {
+  background-color: #FF0000;
+}
+
+/* Second Column: Popular Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.85rem;
+}
+
+.footer-links a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* Third Column: Get In Touch */
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.2rem;
+}
+
+.footer-contact-icon {
+  font-size: 1.5rem; /* Increased size */
+  margin-right: 1rem;
+  color: #007bff;
+  margin-top: 2px;
+}
+
+.footer-contact-item span,
+.footer-contact-item a {
+  font-size: 1rem; /* Increased size */
+  color: #333;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.footer-contact-item a:hover {
+  text-decoration: underline;
+}
+
+/* Fourth Column: Our Offices */
+.footer-office-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.footer-office-region h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.footer-office-region p {
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  border-top: 1px solid #e7e7e7;
+  padding-top: 1.5rem;
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.footer-bottom-links a {
+  color: #333;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer-container {
+    padding: 3rem 2rem 1rem;
+  }
+  .footer-main {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-main {
+    flex-direction: column;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  .footer-bottom-links {
+    margin-top: 0.5rem;
+  }
+  .footer-bottom-links a {
+    margin: 0 0.75rem;
+  }
+  .footer-office-grid {
+    grid-template-columns: repeat(2, 1fr); /* Keep 2 columns on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-office-grid {
+    grid-template-columns: 1fr; /* Stack to 1 column on small phones */
+  }
+}

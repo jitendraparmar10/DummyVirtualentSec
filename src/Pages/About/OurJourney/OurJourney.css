@@ -1,0 +1,211 @@
+/* Prefixed global styles to prevent conflicts */
+.our-journey-scoped-html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+.our-journey-scoped-html *,
+.our-journey-scoped-html *::before,
+.our-journey-scoped-html *::after {
+  box-sizing: inherit;
+}
+
+.our-journey-scoped-body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+}
+
+/* Your original, unchanged code starts here */
+.our-journey-container {
+  width: 100%;
+  padding: 4rem 5rem; /* Default padding for larger screens */
+  margin: 0 auto;
+}
+
+/* Media query for smaller devices */
+@media (max-width: 768px) {
+  .our-journey-container {
+    padding: 4rem 1rem; /* Padding for smaller screens */
+  }
+}
+
+.our-journey-main-heading {
+  text-align: center;
+  font-size: 5rem;
+  margin-bottom: 4rem;
+  color: #333;
+}
+
+.our-journey-bubble {
+  position: relative;
+  padding: 4rem;
+  margin-bottom: -0.5rem;
+  visibility: hidden; /* Start the whole bubble as invisible */
+  animation-name: our-journey-appear;
+  animation-duration: 0.01s; /* A tiny duration just to trigger visibility */
+  animation-fill-mode: forwards;
+}
+
+.our-journey-bubble .our-journey-content {
+    font-size: 1.8rem;
+    background-color: #f5f5f5;
+    border-radius: 15rem;
+    padding: 4rem;
+    opacity: 0; /* Content also starts invisible */
+    animation-name: our-journey-fadeInContent;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+
+.our-journey-bubble h2 {
+  font-size: 3rem;
+  color: #ff2f4f;
+  margin-bottom: 1.5rem;
+}
+
+.our-journey-bubble p {
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.our-journey-bubble::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 0.5rem dotted #ff2f4f;
+    animation-name: our-journey-draw-border-top-down; /* The new animation */
+    animation-duration: 2s; /* How long the drawing takes */
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+/* Define shapes for left and right bubbles */
+.our-journey-bubble:nth-child(even)::before {
+    right: 50%;
+    border-top-left-radius: 16rem;
+    border-bottom-left-radius: 16rem;
+    border-right: none;
+}
+.our-journey-bubble:nth-child(odd)::before {
+    left: 50%;
+    border-top-right-radius: 16rem;
+    border-bottom-right-radius: 16rem;
+    border-left: none;
+}
+
+/* --- SEQUENTIAL ANIMATION DELAYS --- */
+
+/* Bubble 1 (2023) */
+.our-journey-bubble:nth-of-type(1) { animation-delay: 0s; }
+.our-journey-bubble:nth-of-type(1)::before { animation-delay: 0s; }
+.our-journey-bubble:nth-of-type(1) .our-journey-content { animation-delay: 0.5s; }
+
+/* Bubble 2 (2024) */
+.our-journey-bubble:nth-of-type(2) { animation-delay: 2s; }
+.our-journey-bubble:nth-of-type(2)::before { animation-delay: 2s; }
+.our-journey-bubble:nth-of-type(2) .our-journey-content { animation-delay: 2.5s; }
+
+/* Bubble 3 (2025) */
+.our-journey-bubble:nth-of-type(3) { animation-delay: 4s; }
+.our-journey-bubble:nth-of-type(3)::before { animation-delay: 4s; }
+.our-journey-bubble:nth-of-type(3) .our-journey-content { animation-delay: 4.5s; }
+
+
+/* --- KEYFRAME ANIMATIONS (PREFIXED) --- */
+
+@keyframes our-journey-appear {
+  to {
+    visibility: visible;
+  }
+}
+
+@keyframes our-journey-draw-border-top-down {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes our-journey-fadeInContent {
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+@media (max-width: 480px){
+    .our-journey-main-heading{
+        font-size: 3rem;
+    }
+    .our-journey-bubble{
+        padding: 2rem;
+    }
+    .our-journey-bubble::before{
+        border: 0.3rem dotted #ff2f4f;
+    }
+    .our-journey-bubble h2{
+        font-size: 2rem;
+    }
+    .our-journey-bubble .our-journey-content{
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px){
+    .our-journey-main-heading{
+        font-size: 3rem;
+    }
+    .our-journey-bubble{
+        padding: 2rem;
+    }
+    .our-journey-bubble::before{
+        border: 0.3rem dotted #ff2f4f;
+    }
+    .our-journey-bubble h2{
+        font-size: 2rem;
+    }
+    .our-journey-bubble .our-journey-content{
+        font-size: 1.25rem;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 1199px){
+    .our-journey-main-heading{
+        font-size: 3rem;
+    }
+    .our-journey-bubble{
+        padding: 2rem;
+    }
+    .our-journey-bubble::before{
+        border: 0.3rem dotted #ff2f4f;
+    }
+    .our-journey-bubble h2{
+        font-size: 2rem;
+    }
+    .our-journey-bubble .our-journey-content{
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1919px){
+    .our-journey-main-heading{
+        font-size: 3rem;
+    }
+    .our-journey-bubble{
+        padding: 4rem;
+    }
+    .our-journey-bubble::before{
+        border: 0.4rem dotted #ff2f4f;
+    }
+    .our-journey-bubble h2{
+        font-size: 3rem;
+    }
+    .our-journey-bubble .our-journey-content{
+        font-size: 1.5rem;
+    }
+}

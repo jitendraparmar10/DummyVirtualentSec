@@ -1,0 +1,49 @@
+/* General Body Styles */
+/* Add the class 'company-slider-body' to the <body> tag in public/index.html */
+body.company-slider-body {
+  background-color: #f4f7f6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.company-slider-App {
+  width: 100%;
+}
+
+/* --- Marquee Section Styling --- */
+.company-slider-logo-marquee-section {
+  width: 100%;
+  padding: 5rem 0;
+  background-color: #ffffff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.company-slider-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  text-align: center;
+  margin: 0 0 4rem 0;
+}
+
+/* --- Slider and Slide Styling --- */
+.company-slider-slider-container .slick-slider {
+  pointer-events: none;
+}
+
+.company-slider-logo-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  padding: 0 25px;
+  outline: none;
+}
+
+.company-slider-logo-slide img {
+  max-width: 100%;
+  max-height: 70px;
+}

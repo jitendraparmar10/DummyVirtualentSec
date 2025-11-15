@@ -1,0 +1,438 @@
+import React, { useEffect, useRef } from 'react';
+import './App.css';
+
+// --- Data for Logos ---
+const companies = [
+  { name: 'Google', logo: 'https://logo.clearbit.com/google.com' },
+  { name: 'Microsoft', logo: 'https://logo.clearbit.com/microsoft.com' },
+  { name: 'Amazon', logo: 'https://logo.clearbit.com/amazon.com' },
+  { name: 'Netflix', logo: 'https://logo.clearbit.com/netflix.com' },
+  { name: 'Meta', logo: 'https://logo.clearbit.com/meta.com' },
+  { name: 'Spotify', logo: 'https://logo.clearbit.com/spotify.com' },
+  { name: 'Uber', logo: 'https://logo.clearbit.com/uber.com' },
+  { name: 'Slack', logo: 'https://logo.clearbit.com/slack.com' },
+];
+
+const technologies = [
+  { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+  { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+  { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg' },
+  { name: 'GraphQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg' },
+  { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+  { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+  { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+];
+
+// --- Helper for random values ---
+const getRandomValue = (min, max) => Math.random() * (max - min) + min;
+
+// --- Background Text for Breadcrumb ---
+const backgroundTexts = ['Innovation', 'Code', 'Design', '2023', 'Creative', 'React', 'Modern', 'Future', 'Develop'];
+
+const App = () => {
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const textElement = textRef.current;
+      if (textElement) {
+        const { top, height } = textElement.getBoundingClientRect();
+        const scrollPercent = Math.max(0, Math.min(1, 1 - (top + height / 1.5) / window.innerHeight));
+
+        const text = textElement.dataset.text;
+        const textLength = text.length;
+        const lettersToShow = Math.ceil(textLength * scrollPercent);
+
+        let newHtml = '';
+        for (let i = 0; i < textLength; i++) {
+          if (i < lettersToShow) {
+            newHtml += `<span class="black">${text[i]}</span>`;
+          } else {
+            newHtml += `<span class="grey">${text[i]}</span>`;
+          }
+        }
+        textElement.innerHTML = newHtml;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  return (
+    <div className="App">
+      <header className="breadcrumb">
+        <div className="breadcrumb-content">
+          <h1>About Us</h1>
+          <p>Established in 2023</p>
+        </div>
+        <div className="breadcrumb-bg-particles">
+          {backgroundTexts.map((text, index) => (
+            <span
+              key={index}
+              style={{
+                top: `${getRandomValue(5, 95)}%`,
+                left: `${getRandomValue(5, 95)}%`,
+                transform: `rotate(${getRandomValue(-45, 45)}deg)`,
+                fontSize: `${getRandomValue(1, 4)}rem`,
+              }}
+            >
+              {text}
+            </span>
+          ))}
+        </div>
+      </header>
+
+      <main className="content">
+        <section className="about-text-section">
+          <p
+            ref={textRef}
+            data-text="Welcome to our company, a place where innovation and creativity converge. We are a team of passionate developers, designers, and strategists dedicated to crafting exceptional digital experiences. Our journey began with a simple idea: to build beautiful and functional applications that make a difference. We believe in the power of technology to solve complex problems and drive progress. Our approach is collaborative and client-focused, ensuring that we not only meet but exceed expectations."
+          >
+            {/* Initial text will be rendered grey by CSS */}
+            Welcome to our company, a place where innovation and creativity converge. We are a team of passionate developers, designers, and strategists dedicated to crafting exceptional digital experiences. Our journey began with a simple idea: to build beautiful and functional applications that make a difference. We believe in the power of technology to solve complex problems and drive progress. Our approach is collaborative and client-focused, ensuring that we not only meet but exceed expectations.
+          </p>
+        </section>
+
+        <section className="marquee-section">
+          <h2>We Work With</h2>
+          <div className="marquee">
+            <div className="marquee-content">
+              {[...companies, ...companies].map((company, index) => (
+                <div className="logo-item" key={index}>
+                  <img src={company.logo} alt={company.name} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mission-vision-section">
+          <div className="card mission-card">
+            <div className="card-icon">🎯</div>
+            <h3>Our Mission</h3>
+            <p>
+              To empower businesses with innovative and cutting-edge digital
+              solutions that drive growth, efficiency, and success. We are
+              committed to delivering high-quality products and services that
+              exceed client expectations.
+            </p>
+          </div>
+          <div className="card vision-card">
+            <div className="card-icon">🔭</div>
+            <h3>Our Vision</h3>
+            <p>
+              To be a globally recognized leader in the technology industry,
+              renowned for our creativity, expertise, and commitment to
+              excellence. We aspire to create a future where technology
+              enriches lives.
+            </p>
+          </div>
+        </section>
+
+        <section className="marquee-section tech-stack">
+          <h2>Our Technology Stack</h2>
+          <div className="marquee">
+            <div className="marquee-content">
+              {[...technologies, ...technologies].map((tech, index) => (
+                <div className="tech-item" key={index}>
+                  <img src={tech.icon} alt={tech.name} />
+                  <span>{tech.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+};
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #f0f2f5;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* --- Breadcrumb Section --- */
+.breadcrumb {
+  height: 700px;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.breadcrumb-content {
+  z-index: 2;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.breadcrumb-content h1 {
+  font-size: 6rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.breadcrumb-content p {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.breadcrumb-bg-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.breadcrumb-bg-particles span {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.1);
+  font-weight: 700;
+  user-select: none;
+  pointer-events: none;
+  animation: float 20s infinite linear;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(var(--initial-rotate, 0deg)); }
+  50% { transform: translateY(-20px) rotate(var(--mid-rotate, 10deg)); }
+  100% { transform: translateY(0px) rotate(var(--initial-rotate, 0deg)); }
+}
+
+
+/* --- About Us Text Section --- */
+.about-text-section {
+  padding: 6rem 2rem;
+  background-color: #ffffff;
+}
+
+.about-text-section p {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #ccc; /* Initial color */
+}
+
+.about-text-section .grey {
+  color: #ccc;
+  transition: color 0.1s ease-in-out;
+}
+
+.about-text-section .black {
+  color: #222;
+  transition: color 0.1s ease-in-out;
+}
+
+/* --- Marquee Section (Companies & Tech) --- */
+.marquee-section {
+  padding: 4rem 0;
+}
+
+.marquee-section h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  color: #1e3c72;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.marquee-content {
+  display: flex;
+  width: max-content;
+  animation: marquee-animation 30s linear infinite;
+}
+
+@keyframes marquee-animation {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-50%); }
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2rem;
+}
+
+.logo-item img {
+  height: 40px;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.logo-item:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* --- Mission & Vision Section --- */
+.mission-vision-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 2rem;
+  background-color: #ffffff;
+  gap: -50px; /* Negative gap for overlap */
+  position: relative;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  width: 450px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.mission-card {
+  border-left: 5px solid #1e3c72;
+  margin-right: -80px; /* Overlap control */
+}
+
+.vision-card {
+  border-left: 5px solid #2a5298;
+  z-index: 0;
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 0;
+  color: #1e3c72;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* --- Technology Stack Section --- */
+.tech-stack .marquee-content {
+    animation-duration: 40s;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1.5rem;
+  gap: 0.5rem;
+}
+
+.tech-item img {
+  height: 50px;
+  width: 50px;
+  transition: transform 0.3s ease;
+}
+
+.tech-item span {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #444;
+}
+
+.tech-item:hover img {
+  transform: scale(1.2);
+}

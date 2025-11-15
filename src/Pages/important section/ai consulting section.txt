@@ -1,0 +1,268 @@
+import React from 'react';
+import './App.css'; // Your provided CSS file
+import { FaShieldAlt, FaComments, FaBrain, FaCogs, FaMicrochip } from 'react-icons/fa'; // Importing icons
+
+function App() {
+  return (
+    <div className="ai-services-wrapper">
+      <div className="ai-services-container">
+
+        {/* --- Column 1 --- */}
+        <div className="services-column">
+          <div className="consulting-info">
+            <h2>We Provide Best AI Consulting</h2>
+            <div className="heading-underline"></div>
+            <button className="view-all-button">VIEW ALL SERVICES</button>
+          </div>
+
+          <div className="service-card br-tr-bl">
+            <div className="card-icon">
+              {/* Using a shield icon for security */}
+              <FaShieldAlt />
+            </div>
+            <h3>Secure AI Implementation strategies</h3>
+            <p>Credibly innovate granular internal or organic sources</p>
+          </div>
+        </div>
+
+        {/* --- Column 2 --- */}
+        <div className="services-column">
+          <div className="service-card orange-card br-tl-br">
+            <div className="card-icon">
+              {/* Using a comments icon for consulting/offerings */}
+              <FaComments />
+            </div>
+            <h3>AI-Consulting offerings</h3>
+            <p>Credibly innovate granular internal or organic sources</p>
+          </div>
+
+          <div className="service-card br-tr-bl">
+            <div className="card-icon">
+              {/* Using a brain icon for knowledge */}
+              <FaBrain />
+            </div>
+            <h3>Knowledge centralization Solutions</h3>
+            <p>Credibly innovate granular internal or organic sources</p>
+          </div>
+        </div>
+
+        {/* --- Column 3 --- */}
+        <div className="services-column">
+          <div className="service-card br-tr-bl">
+            <div className="card-icon">
+              {/* Using a cogs icon for process automation */}
+              <FaCogs />
+            </div>
+            <h3>Business Process Automation</h3>
+            <p>Credibly innovate granular internal or organic sources</p>
+          </div>
+
+          <div className="service-card br-tl-br">
+            <div className="card-icon">
+              {/* Using a microchip icon for AI implementation */}
+              <FaMicrochip />
+            </div>
+            <h3>AI implementation</h3>
+            <p>Credibly innovate granular internal or organic sources</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap');
+
+/* --- General Styles --- */
+body {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* --- Main Wrapper --- */
+.ai-services-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  padding: 5rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: radial-gradient(circle, #e9e9e9 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* --- 3-Column Container --- */
+.ai-services-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align columns to the top */
+  gap: 30px;
+  width: 100%;
+  max-width: 1300px;
+}
+
+.services-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* --- Column-Specific Alignment --- */
+/* Push the content of the 2nd and 3rd columns down to align perfectly */
+.services-column:nth-child(2) {
+  margin-top: 60px;
+}
+.services-column:nth-child(3) {
+  margin-top: -30px;
+}
+
+
+/* --- Left Panel (Text & Button) --- */
+.consulting-info {
+  padding: 20px;
+}
+
+.consulting-info h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #0d1e3e;
+  line-height: 1.25;
+  margin: 0 0 20px 0;
+}
+
+.heading-underline {
+  width: 90px;
+  height: 5px;
+  background-color: #ff2f4f;
+  margin-bottom: 35px;
+}
+
+.view-all-button {
+  display: inline-block;
+  background-color: #ff2f4f;
+  color: white;
+  border: none;
+  padding: 16px 35px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-all-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(249, 95, 41, 0.35);
+}
+
+
+/* --- Service Card Base Style (IMPORTANT: FIXED SIZE) --- */
+.service-card {
+  background-color: #ffffff;
+  padding: 30px;
+  box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 280px; /* All cards have the same height */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Border Radius Classes (As seen in image) --- */
+.br-tl-br {
+  border-radius: 50px 0px 50px 0px; /* Top-Left, Bottom-Right */
+}
+.br-tr-bl {
+  border-radius: 0px 50px 0px 50px; /* Top-Right, Bottom-Left */
+}
+
+/* --- Card Content --- */
+.card-icon {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #ff2f4f;
+}
+.service-card h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0d1e3e;
+  margin: 0 0 10px 0;
+}
+.service-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Orange Card Override */
+.orange-card {
+  background-color: #ff2f4f;
+}
+.orange-card .card-icon,
+.orange-card h3,
+.orange-card p {
+  color: white;
+}
+
+/* Stacked Icon Style */
+.stacked-icon {
+  position: relative; width: 50px; height: 50px;
+}
+.stacked-icon .icon-back {
+  font-size: 2.8rem; position: absolute; top: 0; left: 0; color: #fde8e0;
+}
+.stacked-icon .icon-front {
+  font-size: 1.5rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #f95f29;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1100px) {
+  .ai-services-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .services-column {
+    width: 100%;
+    max-width: 400px;
+  }
+  .services-column:nth-child(2),
+  .services-column:nth-child(3) {
+    margin-top: 0; /* Reset vertical alignment for stacking */
+  }
+  .heading-underline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .ai-services-wrapper {
+    padding: 3rem 1.5rem;
+  }
+  .service-card {
+    height: auto; /* Allow height to be flexible on mobile */
+    min-height: 250px;
+  }
+}

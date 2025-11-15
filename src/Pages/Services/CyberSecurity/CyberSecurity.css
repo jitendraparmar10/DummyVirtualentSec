@@ -1,0 +1,634 @@
+/* General Body Styles */
+.cyber-security-service-body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f4f4;
+}
+
+.cyber-security-service-page-container {
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.cyber-security-service-hero-section {
+  background-image: url('https://images.pexels.com/photos/327540/pexels-photo-327540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.cyber-security-service-hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.cyber-security-service-hero-section-content {
+  position: relative;
+  z-index: 1;
+  animation: cyber-security-service-fadeInDown 1s ease-in-out;
+}
+
+.cyber-security-service-hero-section-content h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.cyber-security-service-breadcrumb {
+  padding: 10px 0 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+
+.cyber-security-service-breadcrumb li {
+  color: #f0f0f0;
+}
+
+.cyber-security-service-breadcrumb li a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.cyber-security-service-breadcrumb li a:hover {
+  color: #ff2f4f;
+}
+
+.cyber-security-service-breadcrumb li+li::before {
+  content: '/';
+  margin-right: 10px;
+  color: #f0f0f0;
+}
+
+
+/* === KEYFRAME ANIMATIONS === */
+@keyframes cyber-security-service-fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+@media (max-width: 768px) {
+  .cyber-security-service-hero-section-content h1 { font-size: 3rem; }
+}
+
+/* === FONT & COLOR VARIABLES (Inspired by your site) === */
+:root {
+  --cs-font-primary: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+  --cs-font-heading: 'Inter', sans-serif;
+  --cs-color-red: #ff2f4f;
+  --cs-color-dark: #1e1e1e;
+  --cs-color-text: #666;
+  --cs-color-bg-light: #ffffff;
+  --cs-color-bg-grey: #f4f4f4;
+}
+
+/* === GENERAL SECTION STYLES === */
+.cs-section-heading {
+  text-align: center;
+  margin-bottom: 50px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.is-visible .cs-section-heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.cs-section-heading h2 {
+  font-family: var(--cs-font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--cs-color-dark);
+  margin: 0 auto 10px;
+  position: relative;
+  padding-bottom: 15px;
+  display: inline-block;
+}
+
+.cs-section-heading h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background-color: var(--cs-color-red);
+}
+
+.cs-section-desc {
+  max-width: 700px;
+  margin: 10px auto 0;
+  font-size: 1.1rem;
+  color: var(--cs-color-text);
+  line-height: 1.6;
+}
+
+/* --- Section 1: Intro Section --- */
+.cs-intro-section {
+  padding: 100px 5rem;
+  background-color: var(--cs-color-bg-light);
+}
+
+.cs-intro-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cs-intro-image-container {
+  flex: 0 0 450px;
+  height: 450px;
+  border-radius: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1s ease-out, border-radius 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cs-intro-section.is-visible .cs-intro-image-container {
+  opacity: 1;
+  transform: translateX(0);
+  border-radius: 200px 0px 200px 0px;
+}
+
+.cs-intro-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cs-intro-text-content {
+  flex: 1;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-in-out 0.3s, transform 1s ease-in-out 0.3s;
+}
+
+.cs-intro-section.is-visible .cs-intro-text-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cs-intro-text-content h2 {
+  font-family: var(--cs-font-heading);
+  font-size: 2.8rem;
+  color: var(--cs-color-dark);
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.cs-intro-text-content h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background-color: var(--cs-color-red);
+}
+
+.cs-intro-text-content p {
+  font-size: 1.05rem;
+  color: var(--cs-color-text);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+
+/* --- Section 2: Core Services Grid --- */
+.cs-core-services-section {
+  padding: 100px 5rem;
+  background-color: var(--cs-color-bg-grey);
+}
+
+.cs-services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.cs-feature-box-wrapper {
+  filter: drop-shadow(0 12px 20px rgba(44, 62, 80, 0.1));
+  transition: filter 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Staggered animation for services cards */
+.cs-services-container.is-visible .cs-feature-box-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+.cs-services-container.is-visible .cs-feature-box-wrapper:nth-child(1) { transition-delay: 0.1s; }
+.cs-services-container.is-visible .cs-feature-box-wrapper:nth-child(2) { transition-delay: 0.2s; }
+.cs-services-container.is-visible .cs-feature-box-wrapper:nth-child(3) { transition-delay: 0.3s; }
+.cs-services-container.is-visible .cs-feature-box-wrapper:nth-child(4) { transition-delay: 0.4s; }
+.cs-services-container.is-visible .cs-feature-box-wrapper:nth-child(5) { transition-delay: 0.5s; }
+.cs-services-container.is-visible .cs-feature-box-wrapper:nth-child(6) { transition-delay: 0.6s; }
+
+
+.cs-feature-box-wrapper:hover {
+  transform: translateY(-10px);
+  filter: drop-shadow(0 20px 30px rgba(44, 62, 80, 0.15));
+}
+
+.cs-feature-box {
+  background-color: var(--cs-color-bg-light);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  display: flex;
+  padding: 30px;
+  height: 100%;
+  border-radius: 60px 0px 60px 0px;
+  transition: border-radius 0.4s ease-in-out;
+}
+
+.cs-feature-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 60px 0px 60px 0px;
+  box-shadow: inset 0 0 0 0px var(--cs-color-red);
+  transition: box-shadow 0.5s ease-out, border-radius 0.4s ease-in-out;
+}
+
+.cs-feature-box-wrapper:hover .cs-feature-box,
+.cs-feature-box-wrapper:hover .cs-feature-box::before {
+  border-radius: 0;
+}
+
+.cs-feature-box-wrapper:hover .cs-feature-box::before {
+  box-shadow: inset 0 0 0 5px var(--cs-color-red);
+}
+
+.cs-feature-content {
+  text-align: center;
+}
+
+.cs-feature-icon {
+  width: 50px;
+  height: 50px;
+  color: var(--cs-color-red);
+  margin: 0 auto 20px;
+  transition: transform 0.4s ease;
+}
+
+.cs-feature-box-wrapper:hover .cs-feature-icon {
+  transform: scale(1.1);
+}
+
+.cs-feature-content h3 {
+  font-family: var(--cs-font-heading);
+  font-size: 1.5rem;
+  color: #34495e;
+  margin-bottom: 15px;
+}
+
+.cs-feature-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--cs-color-text);
+  margin: 0;
+}
+
+
+/* --- Sections 3, 4, 6: Service Spotlight --- */
+.cs-spotlight-section {
+  padding: 100px 5rem;
+  background: var(--cs-color-bg-light);
+}
+
+.cs-spotlight-section.reversed {
+  background: var(--cs-color-bg-grey);
+}
+
+.cs-spotlight-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.cs-spotlight-section.reversed .cs-spotlight-container {
+  flex-direction: row-reverse;
+}
+
+.cs-spotlight-image {
+  flex: 1;
+  max-width: 550px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  transform: translateX(-50px) scale(0.95);
+  opacity: 0;
+  transition: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cs-spotlight-section.is-visible .cs-spotlight-image {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+}
+
+.cs-spotlight-section.reversed.is-visible .cs-spotlight-image {
+  transform: translateX(0) scale(1);
+}
+
+.cs-spotlight-section.reversed .cs-spotlight-image {
+  transform: translateX(50px) scale(0.95);
+}
+
+.cs-spotlight-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cs-spotlight-text {
+  flex: 1;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+}
+
+.cs-spotlight-section.is-visible .cs-spotlight-text {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.cs-spotlight-tag {
+  display: inline-block;
+  background-color: rgba(255, 47, 79, 0.1);
+  color: var(--cs-color-red);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.cs-spotlight-text h3 {
+  font-family: var(--cs-font-heading);
+  font-size: 2.2rem;
+  color: var(--cs-color-dark);
+  margin-bottom: 20px;
+}
+
+.cs-spotlight-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--cs-color-text);
+  margin-bottom: 25px;
+}
+
+.cs-spotlight-text ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.cs-spotlight-text ul li {
+  padding-left: 30px;
+  position: relative;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+.cs-spotlight-text ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--cs-color-red);
+  font-weight: 700;
+}
+
+/* --- Section 5: Methodology/Process --- */
+.cs-process-section {
+  padding: 100px 5rem;
+  background-color: var(--cs-color-bg-light);
+  text-align: center;
+}
+
+.cs-process-steps-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 80px auto 0; /* Increased margin for new design */
+  counter-reset: step-counter; /* Initialize CSS counter */
+}
+
+.cs-card-wrapper {
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  counter-increment: step-counter; /* Increment counter for each card */
+}
+
+/* Staggered animation for process cards */
+.cs-process-steps-container.is-visible .cs-card-wrapper:nth-child(1) { transition-delay: 0.1s; }
+.cs-process-steps-container.is-visible .cs-card-wrapper:nth-child(2) { transition-delay: 0.3s; }
+.cs-process-steps-container.is-visible .cs-card-wrapper:nth-child(3) { transition-delay: 0.5s; }
+
+.cs-process-steps-container.is-visible .cs-card-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* NEW: Background decorative element */
+.cs-card-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -5px; /* Slightly larger to be visible */
+  background: var(--cs-color-red);
+  border-radius: 0; /* Opposite radius */
+  z-index: 0;
+  transition: transform 0.4s ease-in-out, border-radius 0.4s ease-in-out;
+}
+
+.cs-card-wrapper:hover::before {
+  border-radius: 0 60px;
+}
+
+.cs-card {
+  background-color: #fff;
+  padding: 30px 24px;
+  text-align: left;
+  border-radius: 60px 0;
+  min-height: 200px; /* Increased height */
+  border: 1px solid #eee;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s, box-shadow 0.4s, border-radius 0.4s;
+  position: relative;
+  z-index: 2; /* Sits above the decorative element */
+  overflow: hidden; /* To contain the background number */
+}
+
+/* NEW: Background number */
+.cs-card::after {
+  content: "0" counter(step-counter);
+  position: absolute;
+  z-index: -1;
+  font-size: 5rem;
+  font-weight: 800;
+  color: rgb(255, 255, 255);
+  top: -29px;
+  right: 10px;
+  transition: transform 0.4s ease;
+  text-shadow: -1px -1px 0 #ff2f4f,1px -1px 0 #ff2f4f,-1px 1px 0 #ff2f4f,1px 1px 0 #ff2f4f;
+}
+
+
+
+.cs-card-wrapper:hover .cs-card {
+  /* box-shadow: inset 0 0 0 5px var(--cs-color-red), 0 20px 30px rgba(44, 62, 80, 0.15); */
+  border-radius: 0 60px; /* Combine effect */
+}
+
+.cs-card-wrapper:hover .cs-card::after {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.cs-card-title {
+  font-family: var(--cs-font-heading);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 20px 0 15px;
+}
+
+.cs-card-desc {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--cs-color-text);
+}
+
+
+/* --- Section 7: Call to Action --- */
+.cs-cta-section {
+  padding: 80px 5rem;
+  background-color: var(--cs-color-dark);
+  text-align: center;
+  color: white;
+}
+
+.cs-cta-content h2 {
+  font-family: var(--cs-font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.cs-cta-content p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.cs-cta-button {
+  background-color: var(--cs-color-red);
+  color: white;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 30px 0px 30px 0px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.4s ease, transform 0.4s ease, border-radius 0.4s ease;
+}
+
+.cs-cta-button:hover {
+  background-color: #e62845;
+  transform: scale(1.05);
+  border-radius: 0px 30px 0px 30px;
+}
+
+
+/* --- === RESPONSIVE STYLES === --- */
+
+@media (max-width: 1024px) {
+  .cs-intro-container,
+  .cs-spotlight-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .cs-spotlight-section.reversed .cs-spotlight-container {
+    flex-direction: column;
+  }
+  .cs-intro-text-content h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .cs-intro-image-container,
+  .cs-spotlight-image {
+    max-width: 100%;
+  }
+  .cs-process-steps-container {
+    grid-template-columns: 1fr;
+    gap: 80px; /* Increased gap for better spacing in single column */
+  }
+}
+
+@media (max-width: 768px) {
+  .cs-intro-section,
+  .cs-core-services-section,
+  .cs-spotlight-section,
+  .cs-process-section,
+  .cs-cta-section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .cs-section-heading h2 { font-size: 2rem; }
+  .cs-intro-text-content h2 { font-size: 2.2rem; }
+  .cs-spotlight-text h3 { font-size: 1.8rem; }
+  .cs-services-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .cs-intro-section,
+  .cs-core-services-section,
+  .cs-spotlight-section,
+  .cs-process-section,
+  .cs-cta-section {
+    padding: 60px 1rem;
+  }
+  .cs-intro-image-container {
+    height: 350px;
+  }
+  .cs-feature-box,
+  .cs-feature-box::before {
+    border-radius: 30px 0 30px 0;
+  }
+  .cs-spotlight-text h3 { font-size: 1.6rem; }
+}
