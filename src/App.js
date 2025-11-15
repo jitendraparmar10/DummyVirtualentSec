@@ -11,11 +11,16 @@ import Blogs from './Pages/Blogs/Blogs';
 import TermsAndCondition from './Pages/TermsAndCondition/TermsAndCondition';
 import Privacy from './Pages/Privacy/Privacy';
 
+// 1. Import the new component
+import ScrollToTop from './Components/ScrollToTop'; // Adjust the path if you saved it elsewhere
+
 const App = () => {
   return (
     <Router>
       <>
         <Navbar />
+        {/* 2. Add the component here. It must be inside Router. */}
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

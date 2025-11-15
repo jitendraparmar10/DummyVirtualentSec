@@ -69,11 +69,11 @@
 
 /* Main Content Layout */
 .privacy-and-policy-main-content {
-    padding: 60px 2rem;
+    padding: 5rem;
 }
 
 .privacy-and-policy-container {
-    max-width: 1200px;
+    max-width: 1800px;
     margin: 0 auto;
     display: flex;
     gap: 40px;
@@ -82,7 +82,7 @@
 
 /* Sidebar Styles */
 .privacy-and-policy-sidebar {
-    flex: 0 0 260px;
+    flex: 0 0 350px;
     position: sticky;
     top: 100px;
 }
